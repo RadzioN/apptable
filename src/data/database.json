@@ -1,0 +1,18 @@
+[
+    {
+        "id": 1,
+        "date": "Luty 2022",
+        "title": "Destinies",
+        "img": "./img/destinies.png",
+        "stock": true,
+        "premiere": true
+    },
+    {
+        "id": 2,
+        "date": "Luty 2022",
+        "title": "Destinies",
+        "img": "./img/destinies.png",
+        "stock": true,
+        "premiere": true
+    }
+]
