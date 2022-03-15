@@ -1,7 +1,8 @@
 [
     {
         "id": 1,
-        "date": "Luty 2022",
+        "year": "2022",
+        "month": "Luty",
         "title": "Destinies",
         "img": "./img/destinies.png",
         "stock": true,
@@ -9,9 +10,82 @@
     },
     {
         "id": 2,
-        "date": "Luty 2022",
-        "title": "Destinies",
-        "img": "./img/destinies.png",
+        "year": "2021",
+        "month": "Styczeń",
+        "title": "Star Wars Rebellion",
+        "img": "./img/starwarsrebellion.png",
+        "stock": true,
+        "premiere": false
+    },
+    {
+        "id": 3,
+        "year": "2022",
+        "month": "Styczeń",
+        "title": "Frostpunk",
+        "img": "./img/frostpunk.png",
+        "stock": true,
+        "premiere": true
+    },
+    {
+        "id": 4,
+        "year": "2021",
+        "month": "Lipiec",
+        "title": "Bloodborne",
+        "img": "./img/bloodborne.png",
+        "stock": true,
+        "premiere": false
+    },
+    {
+        "id": 5,
+        "year": "2021",
+        "month": "Sierpień",
+        "title": "City Of Outcast",
+        "img": "./img/cityofoutcast.png",
+        "stock": true,
+        "premiere": true
+    },
+    {
+        "id": 6,
+        "year": "2022",
+        "month": "Luty",
+        "title": "Ticket To Ride",
+        "img": "./img/tickettoride.png",
+        "stock": true,
+        "premiere": true
+    },
+    {
+        "id": 7,
+        "year": "2021",
+        "month": "Grudzień",
+        "title": "Menara",
+        "img": "./img/menara.png",
+        "stock": true,
+        "premiere": false
+    },
+    {
+        "id": 8,
+        "year": "2021",
+        "month": "Wrzesień",
+        "title": "XCOM",
+        "img": "./img/xcom.png",
+        "stock": false,
+        "premiere": false
+    },
+    {
+        "id": 9,
+        "year": "2021",
+        "month": "Luty",
+        "title": "Green Hell",
+        "img": "./img/greenhell.png",
+        "stock": false,
+        "premiere": false
+    },
+    {
+        "id": 10,
+        "year": "2021",
+        "month": "Listopad",
+        "title": "Terraformacja Marsa",
+        "img": "./img/terraformingmars.png",
         "stock": true,
         "premiere": true
     }

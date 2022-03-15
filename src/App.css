@@ -1,11 +1,25 @@
-/*.App {
-  text-align: center;
-}*/
-
 .card-img-top {
-  padding: 20px;
-  height: auto;
-  width: 200px;
-  object-fit: cover;
-  margin: auto;
+    padding: 20px;
+    height: auto;
+    width: 200px;
+    object-fit: cover;
+    margin: auto;
+}
+
+.nav-link {
+    border-radius: 0 !important;
+}
+
+img:hover {
+    cursor: pointer;
+}
+
+.img-full {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.img-full:hover {
+    cursor: default;
 }
