@@ -1,4 +1,5 @@
 import './App.css';
+import React, { useState } from 'react';
 import data from './data/database.json';
 import { Card, Container, Row, Col, Tab, Tabs, Nav, Navbar, NavDropdown, Modal, Button} from 'react-bootstrap';
 import Ripples from 'react-ripples';
@@ -125,6 +126,21 @@ function OpenImageModal(props) {
 
 
 function App() {
+  const [basicActive, setBasicActive] = useState('all');
+  const [modalShow, setModalShow] = React.useState(false);
+  const [imgsrc, setSrc] = useState('');
+
+  const handleBasicClick = (value) => {
+    if (value === basicActive) {
+      return;
+    }
+
+    setBasicActive(value);
+  };
+
+
+
+
   let nowDate = new Date();
   return (
     <div className="App">
@@ -134,12 +150,12 @@ function App() {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link>Strona Główna</Nav.Link>
-            <Nav.Link>Premiery</Nav.Link>
+            <Nav.Link onClick={() => handleBasicClick('all')} active={basicActive === 'all'}>Strona Główna</Nav.Link>
+            <Nav.Link onClick={() => handleBasicClick('premiere')} active={basicActive === 'premiere'}>Premiery</Nav.Link>
             <NavDropdown title="Wybierz rok" id="collasible-nav-dropdown">
-              <NavDropdown.Item>2021</NavDropdown.Item>
+              <NavDropdown.Item onClick={() => handleBasicClick('2021')} active={basicActive === '2021'}>2021</NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item>2022</NavDropdown.Item>
+              <NavDropdown.Item onClick={() => handleBasicClick('2022')} active={basicActive === '2022'}>2022</NavDropdown.Item>
             </NavDropdown>
           </Nav>
         </Navbar.Collapse>
@@ -150,22 +166,22 @@ function App() {
       </Container>
       
       <Tab.Content>
-        <Tab.Pane>
+        <Tab.Pane active={basicActive === 'all'}>
           <Container>
             <Row>
-              { CardsAll().length === 0 ? Empty() : CardsAll() }
+              { CardsAll().length === 0 ? Empty() : CardsAll(() => setModalShow(true)) }
             </Row>
           </Container>
         </Tab.Pane>
-        <Tab.Pane>
+        <Tab.Pane active={basicActive === 'premiere'}>
           <Container>
             <Row>
-              { CardsPrem().length === 0 ? Empty() : CardsPrem() }
+              { CardsPrem().length === 0 ? Empty() : CardsPrem(() => setModalShow(true)) }
             </Row>
             
           </Container>
         </Tab.Pane>
-        <Tab.Pane>
+        <Tab.Pane active={basicActive === '2021' || basicActive === '2022'}>
           <Tabs 
             variant="pills"
             defaultActiveKey={nowDate.getMonth()}
@@ -177,7 +193,7 @@ function App() {
               <Tab eventKey={mi} title={m}>
                 <Container>
                   <Row>
-                    { Cards().length === 0 ? Empty() : Cards() }
+                    { Cards(basicActive, m).length === 0 ? Empty() : Cards(basicActive, m, (() => setModalShow(true))) }
                   </Row>
                 </Container>
               </Tab>
@@ -187,7 +203,8 @@ function App() {
       </Tab.Content>
       
       <OpenImageModal
-        
+        show={modalShow}
+        onHide={() => setModalShow(false)}
       />
     </div>
   );
